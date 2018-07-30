@@ -133,7 +133,6 @@ ImageButton likebutton;
                            .placeholder( android.R.color.darker_gray )
                            .into( posterdetailactivity );
 
-
                    detailratingtextview.setText( moviedetail.getVoteAverage()+"" );
                    detailactivityreleasedate.setText( moviedetail.getReleaseDate() );
                    detailactivityruntime.setText( moviedetail.getRuntime()+"" );
@@ -141,6 +140,20 @@ ImageButton likebutton;
                    toolbar.setTitle( moviedetail.getTitle() );
                    moviename.setText( moviedetail.getTitle() );
                    moviegenere.setText( "genere to be set" );
+
+                   likebutton.setOnClickListener( new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           classmoviestore data=new classmoviestore( moviedetail.getId() );
+                           moviedatabase database = Room.databaseBuilder(getApplicationContext(),moviedatabase.class,"classmoviestore").allowMainThreadQueries().build();
+                           movieDao = database.getmovieDao();
+                           movieDao.addmovie( data );
+                           // Toast.makeText( detailactivity.this,"item liked",Toast.LENGTH_SHORT ).show();
+                           likebutton.setBackground( getResources().getDrawable( R.drawable.ic_favorite_black_24dp ) );
+                       }
+                   } );
+
+
 
                    List<Genre> genere=moviedetail.getGenres();
                    StringBuilder generetoshow= new StringBuilder();
@@ -258,17 +271,17 @@ ImageButton likebutton;
                }
            } );
 
-            likebutton.setOnClickListener( new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    classmoviestore data=new classmoviestore( moviedetail.getId() );
-                    moviedatabase database = Room.databaseBuilder(getApplicationContext(),moviedatabase.class,"classmoviestore").allowMainThreadQueries().build();
-                    movieDao = database.getmovieDao();
-                    movieDao.addmovie( data );
-                   // Toast.makeText( detailactivity.this,"item liked",Toast.LENGTH_SHORT ).show();
-                    likebutton.setBackground( getResources().getDrawable( R.drawable.ic_favorite_black_24dp ) );
-                }
-            } );
+//            likebutton.setOnClickListener( new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    classmoviestore data=new classmoviestore( moviedetail.getId() );
+//                    moviedatabase database = Room.databaseBuilder(getApplicationContext(),moviedatabase.class,"classmoviestore").allowMainThreadQueries().build();
+//                    movieDao = database.getmovieDao();
+//                    movieDao.addmovie( data );
+//                   // Toast.makeText( detailactivity.this,"item liked",Toast.LENGTH_SHORT ).show();
+//                    likebutton.setBackground( getResources().getDrawable( R.drawable.ic_favorite_black_24dp ) );
+//                }
+//            } );
 
 
 
