@@ -26,6 +26,7 @@
                 android:layout_height="180dp">
 
                 <ImageView
+                    android:transitionName="imageTransition"
                     android:scaleType="centerCrop"
                     android:id="@+id/posterimage"
                     android:layout_width="match_parent"

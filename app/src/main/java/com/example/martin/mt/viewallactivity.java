@@ -33,6 +33,7 @@ List<Result> movielist;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_viewallactivity );
+        this.getWindow().getDecorView().setBackgroundColor( getResources().getColor( R.color.colorgray ) );
         rootlayoutviewall=findViewById( R.id.rootlayoutviewall );
         movielist=new ArrayList<>(  );
 
@@ -55,6 +56,7 @@ List<Result> movielist;
             rootlayoutviewall.addItemDecoration( new DividerItemDecoration( Objects.requireNonNull( viewallactivity.this ), DividerItemDecoration.VERTICAL ) );
             rootlayoutviewall.setLayoutManager( manager );
             rootlayoutviewall.setAdapter( recyclerviewadaptor );
+
             fetchdata( baseurl,pagenumber,url2 );
 
             rootlayoutviewall.addOnScrollListener( new RecyclerView.OnScrollListener() {

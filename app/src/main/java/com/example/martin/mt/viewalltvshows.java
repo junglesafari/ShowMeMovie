@@ -31,6 +31,7 @@ public class viewalltvshows extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_viewalltvshows );
+        this.getWindow().getDecorView().setBackgroundColor( getResources().getColor( R.color.colorgray ) );
         rootlayoutviewall = findViewById( R.id.rootlayoutviewalltvshows );
         movielist = new ArrayList<>();
 

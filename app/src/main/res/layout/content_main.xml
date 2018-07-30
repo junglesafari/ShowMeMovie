@@ -4,14 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
    <FrameLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/contianerupcomingmovie">
+   </FrameLayout>
+    <com.github.clans.fab.FloatingActionMenu
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:menu_fab_size="normal"
+        fab:menu_showShadow="true"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_colorNormal="@android:color/white"
+        fab:menu_colorPressed="@android:color/darker_gray"
+        fab:menu_colorRipple="@android:color/holo_blue_light"
+        fab:menu_animationDelayPerItem="50"
+        fab:menu_icon="@drawable/ic_list_black_24dp"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_paddingTop="4dp"
+        fab:menu_labels_paddingRight="8dp"
+        fab:menu_labels_paddingBottom="4dp"
+        fab:menu_labels_paddingLeft="8dp"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_textColor="#FFFFFF"
+        fab:menu_labels_textSize="14sp"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_colorNormal="#333333"
+        fab:menu_labels_colorPressed="#444444"
+        fab:menu_labels_colorRipple="#66FFFFFF"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_position="left"
+        fab:menu_openDirection="up"
+        fab:menu_backgroundColor="@android:color/transparent"
+        android:hapticFeedbackEnabled="true"
 
+        >
+
+        <com.github.clans.fab.FloatingActionButton
+            fab:fab_colorNormal="@android:color/white"
+            fab:fab_colorPressed="#d4e157"
+            fab:fab_colorRipple="#d4e157"
+            android:hapticFeedbackEnabled="true"
+            android:id="@+id/nowplayingmoviesfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_view_carousel_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="NOW PLAYING MOVIES" />
+        <com.github.clans.fab.FloatingActionButton
+            fab:fab_colorPressed="#9ccc65"
+            fab:fab_colorRipple="#9ccc65"
+            fab:fab_colorNormal="@android:color/white"
+            android:hapticFeedbackEnabled="true"
+            android:id="@+id/popularmoviesfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_polymer_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="POPULAR MOVIES" />
+        <com.github.clans.fab.FloatingActionButton
+            fab:fab_colorPressed="#ffee58"
+            fab:fab_colorRipple="#ffee58"
+            fab:fab_colorNormal="@android:color/white"
+            android:hapticFeedbackEnabled="true"
+            android:id="@+id/upcomingmoviesfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_view_column_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="UPCOMING MOVIES" />
+        <com.github.clans.fab.FloatingActionButton
+            fab:fab_colorPressed="#ffca28"
+            fab:fab_colorRipple="#ffca28"
+            fab:fab_colorNormal="@android:color/white"
+            android:hapticFeedbackEnabled="true"
+            android:id="@+id/topratedmoviesfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_loyalty_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="TOP RATED MOVIES" />
+
+    </com.github.clans.fab.FloatingActionMenu>
    </FrameLayout>
 
 </LinearLayout>

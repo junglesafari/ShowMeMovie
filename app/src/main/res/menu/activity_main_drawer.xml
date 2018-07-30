@@ -10,24 +10,20 @@
         <item
             android:id="@+id/nav_gallery"
             android:title="Movies" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:title="Slideshow" />
+
         <item
             android:id="@+id/nav_manage"
             android:title="Latest Movie" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Favourites">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/favouritetv"
+                android:title="Liked tv shows" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/favouritemovie"
+                android:title="Liked Movies" />
         </menu>
     </item>
 

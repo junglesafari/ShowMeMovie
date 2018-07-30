@@ -1,7 +1,6 @@
 package com.example.martin.mt;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,9 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 import java.util.List;
 
@@ -27,19 +29,23 @@ public class castdetailactivity extends AppCompatActivity {
     Toolbar toolbarcastdetail;
     RecyclerView moviecasttvdone;
     RecyclerView moviecastdetailrecyclerview;
+    TextView birthplace;
+    TextView birthday;
+    TextView castbiography;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_castdetailactivity );
-        this.getWindow().getDecorView().setBackgroundColor( Color.BLACK );
-
+        this.getWindow().getDecorView().setBackgroundColor( getResources().getColor( R.color.colorgray ) );
 
         backgroundpostercastdetail = findViewById( R.id.backgroundpostercastdetail );
         moviecastdetailrecyclerview = findViewById( R.id.moviecastmoviesdone );
         toolbarcastdetail = findViewById( R.id.toolbarcastdetail );
         moviecasttvdone=findViewById( R.id.moviecasttvdone );
-
+        birthday=findViewById( R.id.birthday );
+        birthplace=findViewById( R.id.birthplace );
+        castbiography=findViewById( R.id.castbiography );
 
         Intent intent = getIntent();
         long castId = intent.getLongExtra( "castId", 0 );
@@ -52,8 +58,26 @@ public class castdetailactivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Pojocastdetail> call, Response<Pojocastdetail> response) {
                 Pojocastdetail data = response.body();
-                Picasso.with( castdetailactivity.this ).load( "https://image.tmdb.org/t/p/w342/" + data.getProfilePath() ).fit().placeholder( android.R.color.darker_gray ).into( backgroundpostercastdetail );
+//                Picasso
+//                        .with( castdetailactivity.this )
+//                        .load( "https://image.tmdb.org/t/p/w342/" + data.getProfilePath() )
+//                        .fit()
+//                        .placeholder( android.R.color.darker_gray )
+//                        .into( backgroundpostercastdetail );
 
+                GlideApp
+                        .with( castdetailactivity.this )
+                        .load( "https://image.tmdb.org/t/p/w342/" + data.getProfilePath())
+                        .thumbnail( Glide.with(castdetailactivity.this).load(R.drawable.finalplaceholder2))
+                        .transition( DrawableTransitionOptions.withCrossFade( 200 ) )
+                        .override( 500,500 )
+                        .diskCacheStrategy( DiskCacheStrategy.RESOURCE)
+                        .into(backgroundpostercastdetail  );
+
+
+                castbiography.setText( data.getBiography() );
+                birthplace.setText( data.getPlaceOfBirth() );
+                birthday.setText( data.getBirthday() );
                 toolbarcastdetail.setTitle( data.getName() );
             }
 

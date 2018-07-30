@@ -14,9 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +40,6 @@ public class upcomingmoviefragment extends Fragment {
     TextView viewallnowplayingmovies;
     TextView viewallpopularmovies;
     TextView viewalltopratedmovies;
-    ProgressBar elastic_download_view;
     //    public final String language = "en-US";
 //    public final String api_key = "4b5825849f3d9ec57b490089228234eb";
 //    public static List<Genre> generelist;
@@ -82,7 +79,7 @@ public class upcomingmoviefragment extends Fragment {
 
         rootlayout = output.findViewById( R.id.rootlayout );
 
-        elastic_download_view=output.findViewById( R.id.elastic_download_view );
+
         viewallupcomingmovies=output.findViewById( R.id.viewallupcomingmovies );
         viewallnowplayingmovies=output.findViewById( R.id.viewallnowplaying );
         viewallpopularmovies=output.findViewById( R.id.viewallpopularmovies );
@@ -189,25 +186,27 @@ public class upcomingmoviefragment extends Fragment {
             @Override
             public void onResponse(Call<Pojoupcomingmovie> call, Response<Pojoupcomingmovie> response) {
                 rootlayout.setVisibility( View.VISIBLE );
-                elastic_download_view.setVisibility( View.GONE );
+
                 final List<Result>  resultList = response.body().getResults();
+
                 recyclerviewadaptor recyclerviewadaptor = new recyclerviewadaptor( getContext(), resultList, 1,new itemclicklistener() {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override
                     public void myclick(View view, int position) {
                         long mId=resultList.get( position ).getId();
-                        Toast.makeText( getContext(), "item " + position, Toast.LENGTH_SHORT ).show();
+                     //   Toast.makeText( getContext(), "item " + position, Toast.LENGTH_SHORT ).show();
                       detail(mId);
 
                     }
                 } );
                 LinearLayoutManager manager = new LinearLayoutManager( getContext(), LinearLayoutManager.HORIZONTAL, false );
 
+
                 recyclerView.addItemDecoration( new DividerItemDecoration( Objects.requireNonNull( getContext() ), DividerItemDecoration.VERTICAL ) );
                 recyclerView.setLayoutManager( manager );
-                recyclerView.setAdapter( recyclerviewadaptor );
+                recyclerView.setAdapter( recyclerviewadaptor );}
 
-            }
+
 
             @Override
             public void onFailure(Call<Pojoupcomingmovie> call, Throwable t) {

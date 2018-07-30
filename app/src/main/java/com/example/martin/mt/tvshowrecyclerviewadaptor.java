@@ -62,7 +62,7 @@ public class tvshowrecyclerviewadaptor  extends RecyclerView.Adapter<viewholderf
         GlideApp
                 .with( context )
                 .load( "https://image.tmdb.org/t/p/w342/"+result.getPosterPath())
-                .thumbnail( Glide.with(context).load(R.drawable.placeholder2))
+                .thumbnail( Glide.with(context).load(R.drawable.finalplaceholder))
                 .transition( DrawableTransitionOptions.withCrossFade( 200 ) )
                 .override( 500,500 )
                 .diskCacheStrategy( DiskCacheStrategy.RESOURCE)

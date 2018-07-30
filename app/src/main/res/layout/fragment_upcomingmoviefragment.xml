@@ -4,20 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".upcomingmoviefragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <FrameLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ProgressBar
-            android:visibility="visible"
-            android:id="@+id/elastic_download_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/rootlayout"
         android:visibility="invisible"
@@ -34,7 +27,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         app:cardCornerRadius="15dp"
-        app:cardBackgroundColor="@android:color/black"
+        app:cardBackgroundColor="#424242"
         >
         <TextView
             android:textColor="@android:color/white"
@@ -52,7 +45,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         app:cardCornerRadius="15dp"
-        app:cardBackgroundColor="@android:color/black"
+        app:cardBackgroundColor="#424242"
         >
         <TextView
             android:textColor="@android:color/holo_red_dark"
@@ -70,6 +63,7 @@
         android:id="@+id/recyclerviewupcomingmovies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#424242"
         >
 
 
@@ -85,7 +79,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 app:cardCornerRadius="15dp"
-                app:cardBackgroundColor="@android:color/black"
+                app:cardBackgroundColor="#424242"
                 >
                 <TextView
                     android:textColor="@android:color/white"
@@ -97,7 +91,7 @@
                     />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
-                app:cardBackgroundColor="@android:color/black"
+                app:cardBackgroundColor="#424242"
                 app:cardUseCompatPadding="true"
                 android:elevation="10dp"
                 android:layout_width="0dp"
@@ -122,6 +116,7 @@
             android:id="@+id/recyclerviewnowplayingmovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#424242"
             />
 
 
@@ -129,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
             <android.support.v7.widget.CardView
-                app:cardBackgroundColor="@android:color/black"
+                app:cardBackgroundColor="#424242"
                 app:cardUseCompatPadding="true"
                 android:elevation="10dp"
                 android:layout_width="0dp"
@@ -147,7 +142,7 @@
                     />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
-                app:cardBackgroundColor="@android:color/black"
+                app:cardBackgroundColor="#424242"
                 app:cardUseCompatPadding="true"
                 android:elevation="10dp"
                 android:layout_width="0dp"
@@ -171,6 +166,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerviewpopularmovies"
             android:layout_width="match_parent"
+            android:background="#424242"
             android:layout_height="wrap_content"
             />
 
@@ -181,7 +177,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
             <android.support.v7.widget.CardView
-                app:cardBackgroundColor="@android:color/black"
+                app:cardBackgroundColor="#424242"
                 app:cardUseCompatPadding="true"
                 android:elevation="10dp"
                 android:layout_width="0dp"
@@ -199,7 +195,7 @@
                     />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
-                app:cardBackgroundColor="@android:color/black"
+                app:cardBackgroundColor="#424242"
                 app:cardUseCompatPadding="true"
                 android:elevation="10dp"
                 android:layout_width="0dp"
@@ -224,9 +220,12 @@
             android:id="@+id/recyclerviewtopratedmovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#424242"
             />
 
 
     </LinearLayout>
+
+
     </FrameLayout>
 </android.support.v4.widget.NestedScrollView>

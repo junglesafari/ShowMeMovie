@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Objects;
@@ -189,7 +188,7 @@ public class tvshowfragment extends android.support.v4.app.Fragment {
                 tvshowrecyclerviewadaptor recyclerviewadaptor = new tvshowrecyclerviewadaptor( getContext(), resulttvs,1, new itemclicklistener() {
                     @Override
                     public void myclick(View view, int position) {
-                        Toast.makeText( getContext(), "item " + position, Toast.LENGTH_SHORT ).show();
+                       // Toast.makeText( getContext(), "item " + position, Toast.LENGTH_SHORT ).show();
                detailactivity(resulttvs.get( position ).getId());
 
                     }

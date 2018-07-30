@@ -15,6 +15,7 @@ package com.example.martin.mt;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -25,6 +26,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -49,12 +53,14 @@ public class latestmovie extends AppCompatActivity {
     //@BindView( R.id.releasedatelatestmovie )
     TextView releasedate;
     TextView genere;
-    ImageView backgroundposterimage;
+    ImageView backgroundposterlatestmovie;
     FloatingActionImageView fab;
     TextView seemoreheading;
     TextView seemorebutton;
     TextView overviewheading;
-    Toolbar toolbar;
+
+  AppBarLayout app_barlatestmovie;
+  Toolbar toolbar1latestmovie;
 
     private boolean seemoreclicked=false;
 
@@ -64,7 +70,7 @@ public class latestmovie extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_latestmovie );
-          toolbar = findViewById( R.id.toolbar1 );
+
 //        setSupportActionBar( toolbar );
         fab = findViewById( R.id.fab );
         title=findViewById( R.id.titlelatestmovie );
@@ -74,10 +80,22 @@ public class latestmovie extends AppCompatActivity {
         rating=findViewById( R.id.ratinglatestmovie );
         releasedate=findViewById( R.id.releasedatelatestmovie );
         genere=findViewById( R.id.generelatestmovie );
-        backgroundposterimage=findViewById( R.id.backgroundposter );
+        backgroundposterlatestmovie=findViewById( R.id.backgroundposterlatestmovie );
         overviewheading=findViewById( R.id.overviewheading );
         seemorebutton=findViewById( R.id.seemorebottom );
         seemoreheading=findViewById( R.id.seemoreheading );
+        app_barlatestmovie=findViewById( R.id.app_barlatestmovie );
+        toolbar1latestmovie=findViewById( R.id.toolbar1latestmovie );
+        app_barlatestmovie.addOnOffsetChangedListener( new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+                if(i>=-300){
+                    toolbar1latestmovie.setVisibility( View.GONE );
+                }else {
+                    toolbar1latestmovie.setVisibility( View.VISIBLE );
+                }
+            }
+        } );
 
 
 
@@ -96,8 +114,27 @@ public class latestmovie extends AppCompatActivity {
             public void onResponse(Call<Pojolatestmovie> call, Response<Pojolatestmovie> response) {
                 Pojolatestmovie datatoshow = response.body();
                 Log.d( "datatoshow",datatoshow.toString()+"" );
-                Picasso.with( latestmovie.this ).load("https://image.tmdb.org/t/p/w500/"+ datatoshow.getPosterPath() ).fit().placeholder( R.drawable.imgnotfound ).into( backgroundposterimage );
-                Picasso.with( latestmovie.this ).load( "https://image.tmdb.org/t/p/w500/"+datatoshow.getPosterPath() ).fit().placeholder( R.drawable.imgnotfound ).into( fab );
+//                Picasso.with( latestmovie.this )
+//                        .load("https://image.tmdb.org/t/p/w500/"+ datatoshow.getPosterPath() )
+//                        .fit()
+//                        .placeholder( R.drawable.imgnotfound )
+//                        .into( backgroundposterimage );
+
+                GlideApp
+                        .with( latestmovie.this )
+                        .load( "https://image.tmdb.org/t/p/w500/"+ datatoshow.getPosterPath())
+                        .thumbnail( Glide.with(latestmovie.this).load(R.drawable.finalplaceholder))
+                        .transition( DrawableTransitionOptions.withCrossFade( 200 ) )
+                        .override( 500,500 )
+                        .diskCacheStrategy( DiskCacheStrategy.RESOURCE)
+                        .into(backgroundposterlatestmovie );
+
+                Picasso
+                        .with( latestmovie.this )
+                        .load( "https://image.tmdb.org/t/p/w500/"+datatoshow.getPosterPath() )
+                        .fit()
+                        .placeholder( R.drawable.ic_perm_media_black_24dp )
+                        .into( fab );
 
                 title.setText( datatoshow.getTitle() );
 
@@ -110,8 +147,8 @@ public class latestmovie extends AppCompatActivity {
                 }
 
 
-                toolbar.setTitle( datatoshow.getTitle() );
-                setSupportActionBar( toolbar );
+                toolbar1latestmovie.setTitle( datatoshow.getTitle() );
+                setSupportActionBar( toolbar1latestmovie );
 
                 overview.setText( datatoshow.getOverview() );
                 runtime.setText( datatoshow.getRuntime()+" " );

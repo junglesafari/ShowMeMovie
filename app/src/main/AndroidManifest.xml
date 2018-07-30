@@ -34,6 +34,7 @@
             android:name=".castdetailactivity"
             android:label="@string/title_activity_castdetailactivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".favouritemovies"></activity>
     </application>
 
 </manifest> <!-- android:label="@string/title_activity_detailactivity" -->

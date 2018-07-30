@@ -8,7 +8,7 @@
     tools:context=".latestmovie">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/app_barlatestmovie"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
@@ -20,24 +20,27 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/colorPrimary"
+            app:titleEnabled="false"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
             <FrameLayout
+                app:layout_collapseMode="parallax"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                <ImageView
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/backgroundposter"
-                   android:src="@drawable/images"
+                   android:layout_height="match_parent"
+                   android:scaleType="fitXY"
+                   android:id="@+id/backgroundposterlatestmovie"
+
                    />
 
 
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar1"
+                android:id="@+id/toolbar1latestmovie"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 app:layout_collapseMode="pin"
@@ -59,9 +62,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/fab_margin"
-    app:layout_anchor="@id/app_bar"
+    app:layout_anchor="@id/app_barlatestmovie"
     app:layout_anchorGravity="bottom|center_horizontal"
-    android:src="@drawable/images"  />
+    />
 
 
 </android.support.design.widget.CoordinatorLayout>

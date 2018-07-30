@@ -45,6 +45,7 @@ public interface callbackListener {
      @GET
     Call<Pojosimiliartvshows> getSimiliartvshows(@Url String url,@Query( "api_key" ) String api,@Query("language"  ) String language,@Query("page"  ) int pagenumber);
 
-
+     @GET
+    Call<Pojofortvshowdetail>  gettvshowdetail(@Url String mId,@Query( "api_key" ) String api,@Query("language"  ) String language);
 }
 
