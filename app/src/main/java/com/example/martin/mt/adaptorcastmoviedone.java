@@ -50,12 +50,12 @@ public class adaptorcastmoviedone extends RecyclerView.Adapter<viewholderforrecy
         viewholderforrecyclerview.posterrating.setText( result.getVoteAverage().toString() );
         List<Long> genre_ids=result.getGenreIds();
         StringBuilder generetoshow= new StringBuilder();
-//       for(int k=0;k<genre_ids.size();k++){
-//           if(genre_ids.get( k ).equals( MainActivity.generelist.get( k ).getId() )){
-//               generetoshow.append( " " ).append( MainActivity.generelist.get( k ).getName() );
-//           }
-//       }
-        // viewholderforrecyclerview.genere.setText( generetoshow.toString() );
+       for(int k=0;k<genre_ids.size();k++){
+           if(generemap.allgenre().containsKey(  genre_ids.get( k ))){
+               generetoshow.append( " " ).append( generemap.allgenre().get( genre_ids.get( k ) ));
+           }
+       }
+         viewholderforrecyclerview.genere.setText( generetoshow.toString() );
         Picasso.with( context )
                 .load( "https://image.tmdb.org/t/p/w342/"+result.getPosterPath())
                 .fit()

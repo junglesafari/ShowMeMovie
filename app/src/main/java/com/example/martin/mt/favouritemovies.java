@@ -32,7 +32,7 @@ List<classmoviestore> movies;
                // Toast.makeText( favouritemovies.this,"item clicked at favourite",Toast.LENGTH_SHORT ).show();
                 Intent intent=new Intent( favouritemovies.this,detailactivity.class );
                 intent.putExtra( "movieId",movies.get(position ).movieId );
-                intent.putExtra( "tvormovie","movies" );
+                intent.putExtra( "tvormovie","movie" );
                 startActivity( intent );
 
             }

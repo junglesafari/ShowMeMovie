@@ -54,7 +54,7 @@ public class recyclerviewadaptor extends RecyclerView.Adapter<viewholderforrecyc
        StringBuilder generetoshow= new StringBuilder();
        for(int k=0;k<genre_ids.size();k++){
            if(generemap.allgenre().containsKey(  genre_ids.get( k ))){
-               generetoshow.append( " " ).append( generemap.map.get( genre_ids.get( k ) ) );
+               generetoshow.append( " " ).append( generemap.allgenre().get( genre_ids.get( k ) ) );
            }
        }
        viewholderforrecyclerview.genere.setText( generetoshow.toString() );

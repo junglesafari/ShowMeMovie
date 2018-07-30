@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -98,8 +97,8 @@ public class castdetailactivity extends AppCompatActivity {
                 adaptorcastmoviedone adaptor = new adaptorcastmoviedone( castdetailactivity.this, resultsimiliarmovies, 2, new itemclicklistener() {
                     @Override
                     public void myclick(View view, int position) {
-                        Toast.makeText( castdetailactivity.this, "item" + position, Toast.LENGTH_SHORT ).show();
-                        detail(resultsimiliarmovies.get( position ).getId());
+                      //  Toast.makeText( castdetailactivity.this, "item" + position, Toast.LENGTH_SHORT ).show();
+                        detail(resultsimiliarmovies.get( position ).getId(),"movie");
 
                     }
                 } );
@@ -123,12 +122,15 @@ public class castdetailactivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Pojocasttvdone> call, Response<Pojocasttvdone> response) {
                 Pojocasttvdone data = response.body();
-                List<Casttvdone> resultsimiliarmovies = data.getCast();
+                final List<Casttvdone> resultsimiliarmovies = data.getCast();
 
                 adaptortvdone adaptor = new adaptortvdone( castdetailactivity.this, resultsimiliarmovies, 2, new itemclicklistener() {
                     @Override
                     public void myclick(View view, int position) {
-                        Toast.makeText( castdetailactivity.this, "item" + position, Toast.LENGTH_SHORT ).show();
+                      //  Toast.makeText( castdetailactivity.this, "item" + position, Toast.LENGTH_SHORT ).show();
+                        detail(resultsimiliarmovies.get( position ).getId(),"tv");
+
+
                     }
                 } );
                 LinearLayoutManager manager = new LinearLayoutManager( castdetailactivity.this, LinearLayoutManager.HORIZONTAL, false );
@@ -153,9 +155,10 @@ public class castdetailactivity extends AppCompatActivity {
 
 
 
-    public void detail(long mId){
+    public void detail(long mId,String tvormovie){
         Intent intent=new Intent( castdetailactivity.this,detailactivity.class );
         intent.putExtra( "movieId",mId );
+        intent.putExtra( "tvormovie",tvormovie );
         startActivity( intent );
     }
 
