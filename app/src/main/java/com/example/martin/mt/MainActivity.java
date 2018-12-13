@@ -280,6 +280,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent=new Intent( MainActivity.this,favouritemovies.class );
             startActivity( intent );
 
+        }else if(id == R.id.demo_youtube_videos){
+            Intent intent = new Intent( MainActivity.this,demovideorecyclerview.class );
+             startActivity( intent );
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById( R.id.drawer_layout );

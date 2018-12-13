@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,24 +23,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".latestmovie"
             android:label="@string/title_activity_latestmovie"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".viewallactivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".viewalltvshows"
-            android:screenOrientation="portrait"/>
-        <activity
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewallactivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".viewalltvshows"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".detailactivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".castdetailactivity"
             android:label="@string/title_activity_castdetailactivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".favouritemovies"></activity>
+        <activity android:name=".favouritemovies" />
+        <activity android:name=".demovideorecyclerview"></activity>
     </application>
 
 </manifest> <!-- android:label="@string/title_activity_detailactivity" -->

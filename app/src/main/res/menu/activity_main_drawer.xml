@@ -24,6 +24,9 @@
             <item
                 android:id="@+id/favouritemovie"
                 android:title="Liked Movies" />
+            <item android:id="@+id/demo_youtube_videos"
+                android:title="demo youtube videos"/>
+
         </menu>
     </item>
 
